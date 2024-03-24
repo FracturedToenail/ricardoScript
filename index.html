@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-24 Sun 11:25 -->
+<!-- 2024-03-24 Sun 18:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ricardoScript Docs</title>
+<title>ricardoScript Documentation</title>
 <meta name="author" content="Leo Zamoldinov" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -196,19 +196,21 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">ricardoScript Docs</h1>
+<h1 class="title">ricardoScript Documentation</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7aff7f0">1. Try it in your browser!</a></li>
-<li><a href="#orgcb9d101">2. Prelude</a></li>
-<li><a href="#org6cfbf23">3. Examples</a></li>
+<li><a href="#orgfa6dc5f">1. Try it in your browser!</a></li>
+<li><a href="#org569b304">2. Prelude</a></li>
+<li><a href="#org4df5217">3. Language Examples</a></li>
+<li><a href="#org21503ef">4. Download</a></li>
+<li><a href="#org42ad0ac">5. Shell script usage examples</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7aff7f0" class="outline-2">
-<h2 id="org7aff7f0"><span class="section-number-2">1.</span> Try it in your browser!</h2>
+<div id="outline-container-orgfa6dc5f" class="outline-2">
+<h2 id="orgfa6dc5f"><span class="section-number-2">1.</span> Try it in your browser!</h2>
 <div class="outline-text-2" id="text-1">
 <textarea rows="20" cols="80">
 int main () {
@@ -230,16 +232,19 @@ RETURNS: 1
 </code>
 </div>
 </div>
-<div id="outline-container-orgcb9d101" class="outline-2">
-<h2 id="orgcb9d101"><span class="section-number-2">2.</span> Prelude</h2>
+<div id="outline-container-org569b304" class="outline-2">
+<h2 id="org569b304"><span class="section-number-2">2.</span> Prelude</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-screwYouMrRicardoScript, colloquially known as ricardoScript, is a <a href="https://github.com">free and open source</a> deterministic functional script programming language. This means that the same code will always produce the same output. No more &ldquo;It works on my machine&rdquo; for you or anyone else. It follows the KISS (Keep It Simple, Silly) principle and its primary implementation is less than 2.5K lines of code with a consistent <a href="https://en.wikipedia.org/wiki/Indentation_style">brace style</a>. ricardoScript is documented using example based documentation, as it is especially well suited to programming.
+screwYouMrRicardoScript, colloquially known as ricardoScript, is a <a href="https://github.com/FracturedToenail/ricardoScript">free and open source</a> deterministic functional script programming language. <br />
+This means that the same code will always produce the same output. No more &ldquo;It works on my machine&rdquo; for you or anyone else. <br />
+It follows the KISS (Keep It Simple, Silly) principle and its primary implementation is less than 2.5K lines of code with a consistent <a href="https://en.wikipedia.org/wiki/Indentation_style">brace style</a>. <br />
+ricardoScript is documented using example based documentation, as it is especially well suited to programming.
 </p>
 </div>
 </div>
-<div id="outline-container-org6cfbf23" class="outline-2">
-<h2 id="org6cfbf23"><span class="section-number-2">3.</span> Examples</h2>
+<div id="outline-container-org4df5217" class="outline-2">
+<h2 id="org4df5217"><span class="section-number-2">3.</span> Language Examples</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-ricardoScript">fn main () {
@@ -293,10 +298,64 @@ RETURNS: 1
 <br>
 </div>
 </div>
+<div id="outline-container-org21503ef" class="outline-2">
+<h2 id="org21503ef"><span class="section-number-2">4.</span> Download</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The main implementation is in BASH. In the <a href="https://github.com/FracturedToenail/ricardoScript/">GitHub repo</a> it is called <code>rcomp.sh</code>. <br />
+First clone the repository, make the script executable, and then you can run it. <br />
+Note: you may need/want to set an alias to <code>rcomp.sh</code>, because to run it (at least for me) you need to specify its extension. <br />
+Now, when that is done, you should know how to use it. <br />
+<code>Usage: rcomp &lt;path-to-file&gt; [--no-warn|-n]</code>
+is what it says if you provide it with incorrect options.
+</p>
+
+<p>
+This means that to run it, you provide the executable name, an optional tag to not warn you if the file you provided does not end in the <code>.ric</code> file extension, and finally the path to the file. If the file does not exist, it will warn you.
+</p>
+</div>
+</div>
+<div id="outline-container-org42ad0ac" class="outline-2">
+<h2 id="org42ad0ac"><span class="section-number-2">5.</span> Shell script usage examples</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Assume you are in the home directory (~), you do not need to specify the full path to <code>rcomp</code> and the filesystem is like this.
+</p>
+<code>
+~ <br>
+├── otherDir <br>
+│   └── test.ric <br>
+├── test.java <br>
+└── test.ric <br>
+</code>
+<p>
+to evaluate <code>test.ric</code> you could input <br />
+<code>rcomp.sh test.ric</code> <br />
+in the terminal and you would get the evaluation of that. If you unintentionally have a ricardoScript file that does not have the <code>.ric</code> extension, or are curious to see the evaluation of a non-ricardoScript file in its syntax, you can do so. <br />
+<code>rcomp.sh test.java</code> <br />
+This although would give you a warning. <br />
+<code>Warning: file does not end in the .ric extension. You may be trying to evaluate a non ricardoScript file. To suppress this warning, run the --no-warn flag or the -n shorthand</code> <br />
+If you do as it says, you can use the <code>--no-warn</code> flag or the <code>-n</code> shorthand to suppress the warning. <br />
+<code>rcomp.sh /-n/ test.java</code> <br />
+OR <br />
+<code>rcomp.sh /-no-warn/ test.java</code> <br />
+</p>
+
+<p>
+You can also evaluate <code>test.c</code> in <code>~otherDir/test/</code> if you specify its path <br />
+<code>rcomp.sh -n ~/otherDir/test.c</code> <br />
+If you do not specify a real path, then <code>rcomp</code> will complain. e.g <br />
+<code>rcomp.sh fake_file.ric</code> <br />
+it will say <br />
+<code>File does not exist: fake_file.ric</code> <br />
+or whatever file you provided.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Leo Zamoldinov</p>
-<p class="date">Created: 2024-03-24 Sun 11:25</p>
+<p class="date">Created: 2024-03-24 Sun 18:41</p>
 </div>
 </body>
 </html>

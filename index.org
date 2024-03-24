@@ -1,4 +1,4 @@
-#+title: ricardoScript Docs
+#+title: ricardoScript Documentation
 * Try it in your browser!
 
 #+BEGIN_EXPORT html
@@ -20,13 +20,15 @@ Re-evaluate
 <code>
 RETURNS: 1
 </code>
-
 #+END_EXPORT
 
 * Prelude
-screwYouMrRicardoScript, colloquially known as ricardoScript, is a [[https://github.com][free and open source]] deterministic functional script programming language. This means that the same code will always produce the same output. No more "It works on my machine" for you or anyone else. It follows the KISS (Keep It Simple, Silly) principle and its primary implementation is less than 2.5K lines of code with a consistent [[https://en.wikipedia.org/wiki/Indentation_style][brace style]]. ricardoScript is documented using example based documentation, as it is especially well suited to programming.
+screwYouMrRicardoScript, colloquially known as ricardoScript, is a [[https://github.com/FracturedToenail/ricardoScript][free and open source]] deterministic functional script programming language. \\
+This means that the same code will always produce the same output. No more "It works on my machine" for you or anyone else. \\
+It follows the KISS (Keep It Simple, Silly) principle and its primary implementation is less than 2.5K lines of code with a consistent [[https://en.wikipedia.org/wiki/Indentation_style][brace style]]. \\
+ricardoScript is documented using example based documentation, as it is especially well suited to programming.
 
-* Examples
+* Language Examples
  #+begin_src ricardoScript
 fn main () {
     let x = -4;
@@ -80,3 +82,42 @@ RETURNS: 1
 
 <br>
 #+end_export
+* Download
+The main implementation is in BASH. In the [[https://github.com/FracturedToenail/ricardoScript/][GitHub repo]] it is called ~rcomp.sh~. \\
+First clone the repository, make the script executable, and then you can run it. \\
+Note: you may need/want to set an alias to ~rcomp.sh~, because to run it (at least for me) you need to specify its extension. \\
+Now, when that is done, you should know how to use it. \\
+~Usage: rcomp <path-to-file> [--no-warn|-n]~
+is what it says if you provide it with incorrect options.
+
+This means that to run it, you provide the executable name, an optional tag to not warn you if the file you provided does not end in the =.ric= file extension, and finally the path to the file. If the file does not exist, it will warn you.
+
+* Shell script usage examples
+Assume you are in the home directory (~), you do not need to specify the full path to =rcomp= and the filesystem is like this.
+#+begin_export html
+<code>
+~ <br>
+├── otherDir <br>
+│   └── test.ric <br>
+├── test.java <br>
+└── test.ric <br>
+</code>
+#+end_export
+to evaluate ~test.ric~ you could input \\
+~rcomp.sh test.ric~ \\
+in the terminal and you would get the evaluation of that. If you unintentionally have a ricardoScript file that does not have the ~.ric~ extension, or are curious to see the evaluation of a non-ricardoScript file in its syntax, you can do so. \\
+~rcomp.sh test.java~ \\
+This although would give you a warning. \\
+~Warning: file does not end in the .ric extension. You may be trying to evaluate a non ricardoScript file. To suppress this warning, run the --no-warn flag or the -n shorthand~ \\
+If you do as it says, you can use the ~--no-warn~ flag or the ~-n~ shorthand to suppress the warning. \\
+~rcomp.sh /-n/ test.java~ \\
+OR \\
+~rcomp.sh /-no-warn/ test.java~ \\
+
+You can also evaluate ~test.c~ in ~~otherDir/test/~ if you specify its path \\
+~rcomp.sh -n ~/otherDir/test.c~ \\
+If you do not specify a real path, then ~rcomp~ will complain. e.g \\
+~rcomp.sh fake_file.ric~ \\
+it will say \\
+~File does not exist: fake_file.ric~ \\
+or whatever file you provided.
