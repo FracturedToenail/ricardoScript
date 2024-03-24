@@ -89,7 +89,7 @@ The main implementation is in BASH. In the [[https://github.com/FracturedToenail
 First clone the repository, make the script executable, and then you can run it. \\
 Note: you may need/want to set an alias to ~rcomp.sh~, because to run it (at least for me) you need to specify its extension. \\
 Now, when that is done, you should know how to use it. \\
-~Usage: rcomp <path-to-file> [--no-warn|-n]~
+~Usage: rcomp <path-to-file> [--no-warn|-n]~ \\
 is what it says if you provide it with incorrect options.
 
 This means that to run it, you provide the executable name, an optional tag to not warn you if the file you provided does not end in the =.ric= file extension, and finally the path to the file. If the file does not exist, it will warn you.
