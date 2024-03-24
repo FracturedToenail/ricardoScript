@@ -1,2 +1,2 @@
 #+title: ricardoScript
-[[https://fracturedtoenail.github.io/]] is where everything is at
+[[https://fracturedtoenail.github.io/ricardoScript]] is where everything is at.
