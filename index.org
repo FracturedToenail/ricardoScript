@@ -1,4 +1,4 @@
-#+title: Docs
+#+title: ricardoScript Docs
 * Try it in your browser!
 
 #+BEGIN_EXPORT html
