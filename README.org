@@ -1,1 +1,2 @@
 #+title: ricardoScript
+[[https://fracturedtoenail.github.io/]] is where everything is at
