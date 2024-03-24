@@ -1,0 +1,82 @@
+#+title: Docs
+* Try it in your browser!
+
+#+BEGIN_EXPORT html
+<textarea rows="20" cols="80">
+int main () {
+    printf("Hello, World!");
+    return 1;
+}
+</textarea>
+
+<br>
+
+<button>
+Re-evaluate
+</button>
+
+<br>
+
+<code>
+RETURNS: 1
+</code>
+
+#+END_EXPORT
+
+* Prelude
+screwYouMrRicardoScript, colloquially known as ricardoScript, is a [[https://github.com][free and open source]] deterministic functional script programming language. This means that the same code will always produce the same output. No more "It works on my machine" for you or anyone else. It follows the KISS (Keep It Simple, Silly) principle and its primary implementation is less than 2.5K lines of code with a consistent [[https://en.wikipedia.org/wiki/Indentation_style][brace style]]. ricardoScript is documented using example based documentation, as it is especially well suited to programming.
+
+* Examples
+ #+begin_src ricardoScript
+fn main () {
+    let x = -4;
+    let y = 5;
+    add(x, y)
+}
+
+fn add (x: i32, y: i32) {
+    return x + y;
+}
+ #+end_src
+
+
+#+begin_export html
+<code>
+RETURNS: 1
+</code>
+
+
+
+<br>
+#+end_export
+
+ #+begin_src ricardoScript
+int main () {
+    int meaning_of_the_universe = 42;
+    short another_number = meaning_of_the_universe - sizeof(meaning_of_the_universe);
+    return ((another_number - 5) / 3) - 10;
+}
+ #+end_src
+
+
+#+begin_export html
+<code>
+RETURNS: 1
+</code>
+
+<br>
+#+end_export
+
+
+#+begin_src ricardoScript
+(((+ 1 1) / 4) + 0.5)
+#+end_src
+
+
+#+begin_export html
+<code>
+RETURNS: 1
+</code>
+
+<br>
+#+end_export
